@@ -5,6 +5,12 @@ from sys import argv
 # Enables the chapter name as an argument. Example: Himatsubushi
 chapterName = argv[1]
 
+if chapterName = 'ConsoleArcs':
+    if platform.system() == 'Windows':
+        call([r'aria2c', '--file-allocation=none', '--continue=true', '--retry-wait=5', '-m 0', '-x 8', '-s 8', f'https://07th-mod.com/rikachama/Himatsubushi-UI.7z'])
+    else:
+        call([r'aria2c', '--file-allocation=none', '--continue=true', '--retry-wait=5', '-m 0', '-x 8', '-s 8', f'https://07th-mod.com/rikachama/Himatsubushi-UI_UNIX.7z']) 
+
 # Uses a wildcard to build the starting point for patch installation
 for chapterNumber in glob.glob('./HigurashiEp0*_Data'):
     print("Higurashi Data folder found at: " + chapterNumber)
@@ -74,8 +80,10 @@ def extractFiles():
         "*-CG.7z",
         "*-Voices.7z",
         "*.Voice.and.Graphics.Patch.*.zip",
-        "*-UI.7z",
+        "*-UI*.7z",
         "*-BGM.7z",
+        "*-CGAlt.7z",
+        "*-Movie*.7z",
     ]
     for file in files:
         call([r'7z', 'x', file, '-aoa'])

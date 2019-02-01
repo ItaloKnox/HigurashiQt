@@ -5,7 +5,7 @@ from sys import argv
 # Enables the chapter name as an argument. Example: Himatsubushi
 chapterName = argv[1]
 
-if chapterName = 'ConsoleArcs':
+if chapterName == 'ConsoleArcs':
     if platform.system() == 'Windows':
         call([r'aria2c', '--file-allocation=none', '--continue=true', '--retry-wait=5', '-m 0', '-x 8', '-s 8', f'https://07th-mod.com/rikachama/Himatsubushi-UI.7z'])
     else:
